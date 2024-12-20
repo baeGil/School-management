@@ -1,0 +1,100 @@
+<head>
+  <link href="/stylesheets/styles.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="relative overflow-x-auto">
+    <button
+      class="bg-green-400 hover:bg-green-500 text-gray-700 font-semibold hover:font-bold py-2 px-4 hover:border-transparent rounded"
+    >
+      <a href="/2/<%=id%>/view/classlist">Quay lại</a>
+    </button>
+    <h1 class="text-4xl font-bold text-center">Danh sách lớp <%= ma_lop %></h1>
+    <table
+      id="table"
+      class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+    >
+      <thead
+        class="text-xs text-gray-700 uppercase bg-green-300 dark:bg-gray-700 dark:text-gray-400"
+      >
+        <tr>
+          <th scope="col" class="px-6 py-3">STT</th>
+          <th scope="col" class="px-6 py-3">Tên</th>
+          <th scope="col" class="px-6 py-3">MSSV</th>
+          <th scope="col" class="px-6 py-3">Ngày sinh</th>
+          <th scope="col" class="px-6 py-3">Điểm quá trình</th>
+          <th scope="col" class="px-6 py-3">Điểm thi</th>
+        </tr>
+      </thead>
+      <form action="http://localhost:4000/2/<%= id %>/add_score" method="post">
+        <!-- <button
+          type="submit"
+          class="text-gray-600 bg-orange-400 hover:font-bold rounded-md px-3 py-2 text-sm font-medium"
+        >
+          Update
+        </button> -->
+        <% for (var i = 0; i < data.length ; i++) { %>
+        <tbody>
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <th
+              scope="row"
+              class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+            >
+              <%=i+1%>
+            </th>
+            <td class="px-6 py-4"><%=data[i].ten%></td>
+            <td class="px-6 py-4"><%=data[i].MS%></td>
+            <td class="px-6 py-4"><%=data[i].ngay_sinh%></td>
+            <div id="input">
+              <td class="px-6 py-4">
+                <input
+                  type="text"
+                  name="diem_qua_trinh"
+                  id="diem_qua_trinh"
+                  value="<%= hp[i].diem_qua_trinh *100/100 %>"
+                />
+              </td>
+              <td class="px-6 py-4">
+                <input
+                  type="text"
+                  name="diem_thi"
+                  id="diem_thi"
+                  value="<%= hp[i].diem_thi *100/100%>"
+                />
+              </td>
+              <input
+                type="text"
+                name="id_sinh_vien"
+                hidden
+                value="<%= hp[i].id_sinh_vien %>"
+              />
+              <input type="text" name="hoc_ky" hidden value="<%= hoc_ky %>" />
+              <input
+                type="text"
+                name="ma_hoc_phan"
+                hidden
+                value="<%= ma_hoc_phan %>"
+              /><input type="text" name="ma_lop" hidden value="<%= ma_lop %>" />
+            </div>
+          </tr>
+        </tbody>
+        <% } %>
+        <button
+          type="submit"
+          class="text-gray-600 bg-blue-400 hover:font-bold rounded-md px-3 py-2 text-sm font-medium"
+        >
+          Cập nhật
+        </button>
+      </form>
+    </table>
+  </div>
+</body>
+<script>
+  //   function handleUpdate() {
+  //     const input = document.getElementById("diem_qua_trinh");
+  //     if (input.hasAttribute("disabled")) {
+  //       input.removeAttribute("disabled");
+  //     } else {
+  //       input.setAttribute("disabled", true);
+  //     }
+  //   }
+</script>

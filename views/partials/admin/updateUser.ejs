@@ -1,0 +1,204 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/stylesheets/styles.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="w-full max-w-xs">
+    <h1 class="text-center font-bold text-lg">SỬA NGƯỜI DÙNG</h1>
+    <button
+      onclick="history.back()"
+      class="text-center bg-green-400 hover:bg-green-500 text-gray-700 font-semibold hover:font-bold py-2 px-4 hover:border-transparent rounded"
+    >
+      Quay lại
+    </button>
+    <form
+      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      action="http://localhost:4000/0/user/update/<%=data.id%>"
+      method="post"
+    >
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="username"
+        >
+          Tên
+          <p class="text-red-600">(*)</p>
+        </label>
+        <input
+          name="ten"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="username"
+          type="text"
+          value="<%=data.ten%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="nam_vao_truong"
+        >
+          Năm vào trường
+          <p class="text-red-600">(*)</p>
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="nam_vao_truong"
+          type="text"
+          name="nam_vao_truong"
+          value="<%=data.nam_vao_truong%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="dob">
+          Ngày sinh
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="dob"
+          type="text"
+          name="ngay_sinh"
+          value="<%=data.ngay_sinh%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="bdt">
+          Bậc đào tạo
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="bdt"
+          type="text"
+          name="bac_dao_tao"
+          value="<%=data.bac_dao_tao%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="ct">
+          Chương trình
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="ct"
+          type="text"
+          name="chuong_trinh"
+          value="<%=data.chuong_trinh%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="ttht">
+          Tình trạng học tập
+        </label>
+        <select
+          name="tinh_trang_hoc_tap"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="ttht"
+        >
+          <option disabled selected><%=data.tinh_trang_hoc_tap%></option>
+          <option value="0">Thôi học</option>
+          <option value="1">Đang học</option>
+          <option value="2">Bảo lưu</option>
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="gt">
+          Giới tính
+        </label>
+        <select
+          name="gioi_tinh"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="gt"
+        >
+          <option disabled selected><%=data.gioi_tinh%></option>
+          <option value="0">Nam</option>
+          <option value="1">Nữ</option>
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+          Email
+          <p class="text-red-600">(*)</p>
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="email"
+          type="text"
+          name="email"
+          value="<%=data.email%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="dan_toc">
+          Dân tộc
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="dan_toc"
+          type="text"
+          name="dan_toc"
+          value="<%=data.dan_toc%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="cccd">
+          CCCD
+          <p class="text-red-600">(*)</p>
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="cccd"
+          type="text"
+          name="can_cuoc_cong_dan"
+          value="<%=data.can_cuoc_cong_dan%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="hoc_ham">
+          Học hàm
+        </label>
+        <select
+          name="hoc_ham"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="hoc_ham"
+        >
+          <option disabled selected><%=data.hoc_ham%></option>
+          <option value="0">Không có</option>
+          <option value="1">GS</option>
+          <option value="2">PGS</option>
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="hoc_vi">
+          Học vị
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="hoc_vi"
+          type="text"
+          name="hoc_vi"
+          value="<%=data.hoc_vi%>"
+        />
+      </div>
+
+      <div class="flex items-center justify-between">
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="submit"
+        >
+          Cập nhật
+        </button>
+      </div>
+    </form>
+  </div>
+</body>

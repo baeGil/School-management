@@ -1,0 +1,102 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/stylesheets/styles.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="pt-2 relative mx-auto text-gray-600">
+    <input
+      id="input"
+      class="border-2 border-gray-300 bg-white h-10 px-10 pr-16 rounded-lg text-sm focus:outline-none"
+      type="text"
+      name="ma_lop"
+      placeholder="Tìm kiếm (Mã lớp)"
+    />
+    <h2 class="text-left font-semibold text-xl" hidden id="h1">
+      Không tìm thấy lớp...
+    </h2>
+    <table
+      hidden
+      id="table"
+      class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+    >
+      <thead
+        class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400"
+      >
+        <tr>
+          <th scope="col" class="px-6 py-3">Mã lớp</th>
+          <th scope="col" class="px-6 py-3">Mã học phần</th>
+          <th scope="col" class="px-6 py-3">Ngày dạy</th>
+          <th scope="col" class="px-6 py-3">Ca dạy</th>
+          <th scope="col" class="px-6 py-3">Tuần dạy</th>
+          <th scope="col" class="px-6 py-3">Đăng ký</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <th
+            id="ma_lop"
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          ></th>
+          <td id="ma_hoc_phan" class="px-6 py-4"></td>
+          <td id="ngay_hoc" class="px-6 py-4"></td>
+          <td id="ca_hoc" class="px-6 py-4"></td>
+          <td id="tuan_hoc" class="px-6 py-4"></td>
+          <td class="px-6 py-4">
+            <form
+              action="http://localhost:4000/2/<%=id%>/class/registration"
+              method="post"
+            >
+              <input id="hoc_ky" type="text" hidden name="hoc_ky" value="" />
+              <input id="ma_lop1" type="text" hidden name="ma_lop" value="" />
+              <button
+                type="submit"
+                class="text-gray-100 bg-gray-500 hover:font-bold rounded-md px-3 py-2 text-sm font-medium"
+              >
+                Đăng ký
+              </button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+<script>
+  const input = document.getElementById("input");
+  input.addEventListener("input", async function () {
+    if (input.value != "") {
+      const res = await fetch("http://localhost:4000/normal/find_class1", {
+        method: "POST",
+        body: JSON.stringify({ ma_lop: input.value }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+      const json = await res.json();
+      const data = json.data;
+      if (data) {
+        console.log(data.ma_hoc_phan);
+        document.getElementById("table").removeAttribute("hidden");
+        document.getElementById("ma_lop").innerHTML = data.ma_lop;
+        document.getElementById("ma_hoc_phan").innerHTML = data.ma_hoc_phan;
+        document.getElementById("ngay_hoc").innerHTML = data.ngay_hoc;
+        document.getElementById("ca_hoc").innerHTML =
+          data.ca_bat_dau + " - " + data.ca_ket_thuc;
+        document.getElementById("tuan_hoc").innerHTML =
+          data.tuan_bat_dau + " - " + data.tuan_ket_thuc;
+        document.getElementById("hoc_ky").setAttribute("value", 20242);
+        document.getElementById("ma_lop1").setAttribute("value", data.ma_lop);
+        document.getElementById("h1").setAttribute("hidden", true);
+      } else {
+        document.getElementById("table").setAttribute("hidden", true);
+        document.getElementById("h1").removeAttribute("hidden");
+      }
+    } else {
+      document.getElementById("table").setAttribute("hidden", true);
+      document.getElementById("h1").setAttribute("hidden", true);
+    }
+  });
+</script>

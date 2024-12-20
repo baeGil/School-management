@@ -1,0 +1,80 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/stylesheets/styles.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="pt-2 relative mx-auto text-gray-600">
+    <h1 class="text-4xl font-bold text-center">Các môn bạn đã đăng ký</h1>
+    <table
+      id="table"
+      class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+    >
+      <thead
+        class="text-xs text-gray-700 uppercase bg-green-300 dark:bg-gray-700 dark:text-gray-400"
+      >
+        <tr>
+          <th scope="col" class="px-6 py-3">STT</th>
+          <th scope="col" class="px-6 py-3">Mã lớp</th>
+          <th scope="col" class="px-6 py-3">Mã học phần</th>
+          <th scope="col" class="px-6 py-3">Ngày học</th>
+          <th scope="col" class="px-6 py-3">Ca học</th>
+          <th scope="col" class="px-6 py-3">Tuần học</th>
+          <th scope="col" class="px-6 py-3">Phòng học</th>
+          <th scope="col" class="px-6 py-3">Xóa lớp đăng ký</th>
+        </tr>
+      </thead>
+      <% for (var i = 0; i < tkb.length ; i++) { %>
+      <tbody>
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            <%=i+1%>
+          </th>
+          <td class="px-6 py-4"><%=tkb[i].ma_lop%></td>
+          <td class="px-6 py-4"><%=tkb[i].ma_hoc_phan%></td>
+          <td class="px-6 py-4"><%=tkb[i].ngay_hoc%></td>
+          <td class="px-6 py-4">
+            <%=tkb[i].ca_bat_dau%> - <%=tkb[i].ca_ket_thuc%>
+          </td>
+          <td class="px-6 py-4">
+            <%=tkb[i].tuan_bat_dau%> - <%=tkb[i].tuan_ket_thuc%>
+          </td>
+          <td class="px-6 py-4"><%=tkb[i].phong_hoc%></td>
+
+          <td class="px-6 py-4">
+            <form action="/1/<%= id %>/delete" method="post">
+              <input type="text" hidden value="<%= id %>" name="id_sinh_vien" />
+              <input
+                type="text"
+                hidden
+                value="<%= tkb[i].ma_lop %>"
+                name="ma_lop"
+              />
+              <button
+                class="text-gray-900 bg-red-200 hover:font-bold rounded-md border border-red-700 px-3 py-2 text-sm font-medium"
+                type="submit"
+              >
+                Xóa
+              </button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+      <% } %>
+    </table>
+    <br />
+    <!-- <h2 class="font-bold text-lg">
+      So mon hoc da dang ky: <%=so_luong_mon_hoc%>
+    </h2>
+    <h2 class="font-bold text-lg">So tin chi dang ky: <%= so_tc%></h2>
+    <h2 class="font-bold text-lg">Hoc phi: <%=hoc_phi%></h2> -->
+    <button
+      class="bg-green-400 hover:bg-green-500 text-gray-700 font-semibold hover:font-bold py-2 px-4 hover:border-transparent rounded"
+    >
+      <a href="/1/<%=id%>/view/home">Quay lại</a>
+    </button>
+  </div>
+</body>

@@ -1,0 +1,137 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/stylesheets/styles.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="w-full max-w-xs">
+    <h1 class="text-center font-bold text-lg">SỬ MÔN HỌC</h1>
+    <button
+      onclick="history.back()"
+      class="text-center bg-green-400 hover:bg-green-500 text-gray-700 font-semibold hover:font-bold py-2 px-4 hover:border-transparent rounded"
+    >
+      Quay lại
+    </button>
+
+    <form
+      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      action="http://localhost:4000/0/subject/update/<%=data.id%>"
+      method="post"
+    >
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="ma_hp">
+          Mã học phần
+        </label>
+        <input
+          name="ma_hoc_phan"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="ma_hp"
+          type="text"
+          value="<%=data.ma_hoc_phan%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="ten_hp">
+          Tên học phần
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="ten_hp"
+          type="text"
+          name="ten_hoc_phan"
+          value="<%=data.ten_hoc_phan%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="so_tc_dang_ky"
+        >
+          Số tín chỉ đăng ký
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="so_tc_dang_ky"
+          type="text"
+          name="so_tc_dang_ky"
+          value="<%=data.so_tc_dang_ky%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="so_tc_hoc_phi"
+        >
+          Số tín chỉ học phí
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="so_tc_hoc_phi"
+          type="text"
+          name="so_tc_hoc_phi"
+          value="<%=data.so_tc_hoc_phi%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="hoc_phi_mot_tc"
+        >
+          Học phí một tín chỉ (VND)
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="hoc_phi_mot_tc"
+          type="text"
+          name="hoc_phi_mot_tc"
+          value="<%=data.hoc_phi_mot_tc%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="trong_so_cuoi_ky"
+        >
+          Trọng số cuối kỳ
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="trong_so_cuoi_ky"
+          type="text"
+          name="trong_so_cuoi_ky"
+          value="<%=data.trong_so_cuoi_ky%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="trong_so_qua_trinh"
+        >
+          Trọng số quá trình
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="trong_so_qua_trinh"
+          type="text"
+          name="trong_so_qua_trinh"
+          value="<%=data.trong_so_qua_trinh%>"
+        />
+      </div>
+
+      <div class="flex items-center justify-between">
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="submit"
+        >
+          Cập nhật
+        </button>
+      </div>
+    </form>
+  </div>
+</body>

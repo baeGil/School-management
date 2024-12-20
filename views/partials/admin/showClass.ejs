@@ -1,0 +1,101 @@
+<head>
+  <link href="/stylesheets/styles.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="relative overflow-x-auto">
+    <h1 class="text-center font-bold text-lg">DANH SÁCH LỚP HỌC</h1>
+    <button
+      class="bg-green-400 hover:bg-green-500 text-gray-700 font-semibold hover:font-bold py-2 px-4 hover:border-transparent rounded"
+    >
+      <a href="addClass">Thêm lớp học</a>
+    </button>
+    <button
+      class="bg-green-400 hover:bg-green-500 text-gray-700 font-semibold hover:font-bold py-2 px-4 hover:border-transparent rounded"
+    >
+      <a href="/view/login">Quay lại</a> <br />
+    </button>
+    <table
+      class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+    >
+      <thead
+        class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400"
+      >
+        <tr>
+          <th scope="col" class="px-6 py-3">STT</th>
+          <th scope="col" class="px-6 py-3">Mã lớp</th>
+          <th scope="col" class="px-6 py-3">Mã học phần</th>
+          <th scope="col" class="px-6 py-3">Trạng thái đăng ký</th>
+          <th scope="col" class="px-6 py-3">Số lượng đăng ký</th>
+          <th scope="col" class="px-6 py-3">Số lượng tối đa</th>
+          <th scope="col" class="px-6 py-3">Trạng thái giáo viên</th>
+          <th scope="col" class="px-6 py-3">Chi tiết</th>
+          <th scope="col" class="px-6 py-3">Sửa</th>
+          <th scope="col" class="px-6 py-3">Xóa</th>
+        </tr>
+      </thead>
+      <% for (var i = 0; i < data.length ; i++) { %>
+      <tbody>
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            <%=i+1%>
+          </th>
+          <td class="px-6 py-4"><%= data[i].ma_lop %></td>
+          <td class="px-6 py-4"><%= data[i].ma_hoc_phan %></td>
+          <td class="px-6 py-4">
+            <% if (data[i].trang_thai === 1) { %>
+            <p>Mở</p>
+            <% } else { %>
+            <p>Đóng</p>
+            <% } %>
+          </td>
+          <td class="px-6 py-4"><%= data[i].so_luong_dang_ky %></td>
+          <td class="px-6 py-4"><%= data[i].so_luong_max %></td>
+          <td class="px-6 py-4">
+            <% if (data[i].trang_thai_gv === 1) { %>
+            <p>Đã nhận</p>
+            <% } else { %>
+            <p>Chưa nhận</p>
+            <% } %>
+          </td>
+          <td class="px-6 py-4">
+            <form action="detailClass/<%= data[i].id %>" method="get">
+              <button
+                type="submit"
+                class="text-gray-100 bg-gray-500 hover:font-bold rounded-md px-3 py-2 text-sm font-medium"
+              >
+                Chi tiết
+              </button>
+            </form>
+          </td>
+          <td class="px-6 py-4">
+            <form action="updateClass/<%= data[i].id %>" method="get">
+              <button
+                class="justify-center text-gray-900 bg-blue-200 hover:font-bold rounded-md border border-blue-700 px-3 py-2 text-sm font-medium"
+                type="submit"
+              >
+                Sửa
+              </button>
+            </form>
+          </td>
+
+          <td class="px-6 py-4">
+            <form action="/0/class/delete" method="post">
+              <input type="text" hidden value="<%= data[i].id %>" name="id" />
+              <button
+                class="text-gray-900 bg-red-200 hover:font-bold rounded-md border border-red-700 px-3 py-2 text-sm font-medium"
+                type="submit"
+                onclick=""
+              >
+                Xóa
+              </button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+      <% } %>
+    </table>
+  </div>
+</body>

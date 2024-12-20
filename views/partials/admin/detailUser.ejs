@@ -1,0 +1,214 @@
+<head>
+  <link href="/stylesheets/styles.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="relative overflow-x-auto">
+    <button
+      onclick="history.back()"
+      class="bg-green-400 hover:bg-green-500 text-gray-700 font-semibold hover:font-bold py-2 px-4 hover:border-transparent rounded"
+    >
+      Quay lại
+    </button>
+    <table
+      class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+    >
+      <thead
+        class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400"
+      >
+        <tr>
+          <th scope="col" class="px-6 py-3">Các trường dữ liệu</th>
+          <th scope="col" class="px-6 py-3">Thông tin chi tiết</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            ID
+          </th>
+          <td class="px-6 py-4"><%= data.id %></td>
+        </tr>
+
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            MS
+          </th>
+          <td class="px-6 py-4"><%= data.MS %></td>
+        </tr>
+
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            Tên
+          </th>
+          <td class="px-6 py-4"><%= data.ten %></td>
+        </tr>
+
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            Ngày sinh
+          </th>
+          <td class="px-6 py-4"><%= data.ngay_sinh %></td>
+        </tr>
+
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            Năm vào trường
+          </th>
+          <td class="px-6 py-4"><%= data.nam_vao_truong%></td>
+        </tr>
+
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            Bậc đào tạo
+          </th>
+          <td class="px-6 py-4"><%= data.bac_dao_tao %></td>
+        </tr>
+
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            Chương trình
+          </th>
+          <td class="px-6 py-4"><%= data.chuong_trinh %></td>
+        </tr>
+
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            Tình trạng học tập
+          </th>
+          <td class="px-6 py-4">
+            <% if (data.tinh_trang_hoc_tap === 0) { %>
+            <p>Thôi học</p>
+            <% } if (data.tinh_trang_hoc_tap === 1){ %>
+            <p>Đang học</p>
+            <% } if (data.tinh_trang_hoc_tap === 2) { %>
+            <p>Bảo lưu</p>
+            <% } %>
+          </td>
+        </tr>
+
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            Giới tính
+          </th>
+          <td class="px-6 py-4">
+            <% if (data.gioi_tinh === 0) { %>
+            <p>Nam</p>
+            <% }if (data.gioi_tinh === 1){ %>
+            <p>Nữ</p>
+            <% } %>
+          </td>
+        </tr>
+
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            Email
+          </th>
+          <td class="px-6 py-4"><%= data.email %></td>
+        </tr>
+
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            Dân tộc
+          </th>
+          <td class="px-6 py-4"><%= data.dan_toc %></td>
+        </tr>
+
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            CCCD
+          </th>
+          <td class="px-6 py-4"><%= data.can_cuoc_cong_dan %></td>
+        </tr>
+
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            Khoa
+          </th>
+          <td class="px-6 py-4"><%= data.khoa %></td>
+        </tr>
+
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            Học hàm
+          </th>
+          <td class="px-6 py-4">
+            <% if (data.hoc_ham === 0) { %>
+            <p>Không có</p>
+            <% } if (data.hoc_ham === 1){ %>
+            <p>GS</p>
+            <% } if (data.hoc_ham === 2) { %>
+            <p>PGS</p>
+            <% } %>
+          </td>
+        </tr>
+
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            Học vị
+          </th>
+          <td class="px-6 py-4"><%= data.hoc_vi %></td>
+        </tr>
+
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            Vai trò
+          </th>
+          <td class="px-6 py-4">
+            <% if (data.role === 1) { %>
+            <p>Sinh viên</p>
+            <% }if (data.role === 2) { %>
+            <p>Giảng viên</p>
+            <% } %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>

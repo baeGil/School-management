@@ -1,0 +1,222 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/stylesheets/styles.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="w-full max-w-xs">
+    <h1 class="text-center font-bold text-lg">SỬA LỚP HỌC</h1>
+    <button
+      onclick="history.back()"
+      class="text-center bg-green-400 hover:bg-green-500 text-gray-700 font-semibold hover:font-bold py-2 px-4 hover:border-transparent rounded"
+    >
+      Quay lại
+    </button>
+
+    <form
+      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      action="http://localhost:4000/0/class/update/<%=data.id%>"
+      method="post"
+    >
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="ma_lop">
+          Mã lớp
+        </label>
+        <input
+          name="ma_lop"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="ma_lop"
+          type="text"
+          value="<%=data.ma_lop%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="ma_hp">
+          Mã học phần
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="ma_hp"
+          type="text"
+          name="ma_hoc_phan"
+          value="<%=data.ma_hoc_phan%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="note">
+          Ghi chú
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="note"
+          type="text"
+          name="ghi_chu"
+          value="<%=data.ghi_chu%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="ngay_hoc"
+        >
+          Ngày sinh
+        </label>
+        <select
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="ngay_hoc"
+          name="ngay_hoc"
+        >
+          <option disabled selected><%=data.ngay_hoc%></option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="tuan_bat_dau"
+        >
+          Tuần bắt đầu
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="tuan_bat_dau"
+          type="text"
+          name="tuan_bat_dau"
+          value="<%=data.tuan_bat_dau%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="tuan_ket_thuc"
+        >
+          Tuần kết thúc
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="tuan_ket_thuc"
+          type="text"
+          name="tuan_ket_thuc"
+          value="<%=data.tuan_ket_thuc%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="ca_bat_dau"
+        >
+          Ca bắt đầu
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="ca_bat_dau"
+          type="text"
+          name="ca_bat_dau"
+          value="<%=data.ca_bat_dau%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="ca_ket_thuc"
+        >
+          Ca kết thúc
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="ca_ket_thuc"
+          type="text"
+          name="ca_ket_thuc"
+          value="<%=data.ca_ket_thuc%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="phong_hoc"
+        >
+          Phòng học
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="phong_hoc"
+          type="text"
+          name="phong_hoc"
+          value="<%=data.phong_hoc%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="trang_thai"
+        >
+          Trạng thái
+        </label>
+        <select
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="trang_thai"
+          name="trang_thai"
+        >
+          <option disabled selected><%=data.trang_thai%></option>
+          <option value="0">Đóng</option>
+          <option value="1">Mở</option>
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="so_luong_dang_ky"
+        >
+          Số lượng đăng ký
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="so_luong_dang_ky"
+          type="text"
+          name="so_luong_dang_ky"
+          value="<%=data.so_luong_dang_ky%>"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="so_luong_max"
+        >
+          Số lượng đăng ký tối đa
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="so_luong_max"
+          type="text"
+          name="so_luong_max"
+          value="<%=data.so_luong_max%>"
+        />
+      </div>
+
+      <div class="flex items-center justify-between">
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="submit"
+        >
+          Cập nhật
+        </button>
+      </div>
+    </form>
+  </div>
+</body>
